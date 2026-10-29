@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple CRM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>SimpleCRM</h2>
+    <p class="nav-active">Dashboard</p>
+    <p>Customers</p>
+    <p>Sales Leads</p>
+    <p>Settings</p>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>Customer Dashboard</h1>
+        <p>Manage your customers in one place.</p>
+      </div>
+      <button id="openForm">+ Add Customer</button>
+    </header>
+
+    <section class="stats">
+      <div class="stat-card">
+        <p>Total Customers</p>
+        <h2 id="totalCustomers">0</h2>
+      </div>
+      <div class="stat-card">
+        <p>New Leads</p>
+        <h2 id="newLeads">0</h2>
+      </div>
+      <div class="stat-card">
+        <p>Converted</p>
+        <h2 id="converted">0</h2>
+      </div>
+    </section>
+
+    <section class="panel" id="formPanel" hidden>
+      <h2>Add a Customer</h2>
+      <form id="customerForm">
+        <input id="name" placeholder="Full name" required>
+        <input id="email" type="email" placeholder="Email address" required>
+        <input id="company" placeholder="Company" required>
+
+        <select id="status">
+          <option>New Lead</option>
+          <option>Contacted</option>
+          <option>Converted</option>
+        </select>
+
+        <div class="form-actions">
+          <button type="submit">Save Customer</button>
+          <button type="button" id="cancelForm" class="secondary">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="table-heading">
+        <div>
+          <h2>Customers</h2>
+          <p>View and manage your contacts.</p>
+        </div>
+        <input id="search" placeholder="Search customers...">
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="customerList"></tbody>
+        </table>
+      </div>
+      <p id="emptyMessage" class="empty" hidden>
+        No customers found. Add your first customer!
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
